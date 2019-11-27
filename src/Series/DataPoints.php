@@ -46,7 +46,7 @@ class DataPoints
      *
      * @return DataPoints
      */
-    public static function make(Target $target, array $data = null): DataPoints
+    public static function make(Target $target, array $data = null): self
     {
         $data = $data ?? [];
         $points = collect($data['datapoints'] ?? [])->transform(function ($point) {
@@ -73,6 +73,6 @@ class DataPoints
      */
     public function isNotEmpty(): bool
     {
-        return !$this->isEmpty();
+        return ! $this->isEmpty();
     }
 }

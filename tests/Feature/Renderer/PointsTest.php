@@ -35,7 +35,7 @@ class PointsTest extends TestCase
     protected function mockPoints()
     {
         return new MockHandler([
-            new Response(200, [], file_get_contents(__DIR__ . '/../../Fixtures/datapoints.json')),
+            new Response(200, [], file_get_contents(__DIR__.'/../../Fixtures/datapoints.json')),
         ]);
     }
 }

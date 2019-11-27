@@ -42,7 +42,7 @@ class GraphittiServiceProvider extends ServiceProvider
     protected function configure()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/graphitti.php', 'graphitti'
+            __DIR__.'/../config/graphitti.php', 'graphitti'
         );
     }
 
@@ -55,7 +55,7 @@ class GraphittiServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/graphitti.php' => $this->app->configPath('graphitti.php'),
+                __DIR__.'/../config/graphitti.php' => $this->app->configPath('graphitti.php'),
             ], 'graphitti-config');
         }
     }

@@ -7,7 +7,6 @@ use OceanDBA\Graphitti\Tests\TestCase;
 
 class TargetTest extends TestCase
 {
-
     public function test_it_can_apply_methods()
     {
         $target = Target::make('server.web1.load', 'Server-load');

@@ -47,6 +47,6 @@ class ValidateResponse extends ResponseMiddleware
      */
     protected function handleErrorResponse(ResponseInterface $response)
     {
-        throw ApiException::make((string)$response->getBody());
+        throw ApiException::make((string) $response->getBody());
     }
 }

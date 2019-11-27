@@ -13,7 +13,7 @@ return [
     | the Graphitti library.
     |
     */
-    
+
     'default' => env('GRAPHITE_HOST', 'graphite'),
 
     /*
