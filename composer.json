@@ -15,6 +15,7 @@
     "require": {
         "php": "^7.1.3",
         "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0",
         "illuminate/contracts": "~5.8.0|^6.0|^7.0",
         "nesbot/carbon": "^2.0"
     },
@@ -40,11 +41,23 @@
         "laravel": {
             "providers": [
                 "OceanDBA\\Graphitti\\GraphittiServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "GraphitePoints": "OceanDBA\\Graphitti\\Facades\\GraphitePoints"
+            }
         }
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "test:unit": "@php vendor/bin/phpunit",
+        "test": [
+            "@test:unit"
+        ],
+        "post-create-project-cmd": [
+            "@php application app:rename"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true
