@@ -2,8 +2,8 @@
 
 namespace OceanDBA\Graphitti\Renderer\Middleware;
 
-use OceanDBA\Graphitti\Concerns\Makable;
 use Psr\Http\Message\RequestInterface;
+use OceanDBA\Graphitti\Concerns\Makable;
 
 abstract class RequestMiddleware
 {
@@ -16,5 +16,5 @@ abstract class RequestMiddleware
      *
      * @return RequestInterface
      */
-    public abstract function handle(RequestInterface $request): RequestInterface;
+    abstract public function handle(RequestInterface $request): RequestInterface;
 }

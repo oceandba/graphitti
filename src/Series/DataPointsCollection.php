@@ -20,7 +20,7 @@ class DataPointsCollection extends Collection implements TimeSeries
      *
      * @return DataPointsCollection
      */
-    public static function createFrom(ResponseInterface $response, Collection $targets): DataPointsCollection
+    public static function createFrom(ResponseInterface $response, Collection $targets): self
     {
         $rawDatapoints = collect(json_decode($response->getBody()->getContents(), true));
 

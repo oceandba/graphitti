@@ -40,7 +40,7 @@ class Point
      *
      * @return Point
      */
-    public static function make(int $timestamp, float $value): Point
+    public static function make(int $timestamp, float $value): self
     {
         $time = Carbon::createFromTimestamp($timestamp);
         $value = round($value, 2);

@@ -49,15 +49,15 @@ class Target implements UrlParameter, Metric
     {
         $parameters = '';
 
-        if (!empty($args)) {
+        if (! empty($args)) {
             $parameters = collect($args)->transform(function ($item) {
-                return '"' . $item . '"';
+                return '"'.$item.'"';
             })->implode(',');
 
-            $parameters = ',' . $parameters;
+            $parameters = ','.$parameters;
         }
 
-        $this->target = $method . '(' . $this->target . $parameters . ')';
+        $this->target = $method.'('.$this->target.$parameters.')';
 
         return $this;
     }
@@ -79,7 +79,7 @@ class Target implements UrlParameter, Metric
      */
     public function render(): string
     {
-        return 'target=' . $this->value();
+        return 'target='.$this->value();
     }
 
     /**

@@ -113,7 +113,7 @@ abstract class Renderable
      *
      * @return Renderable
      */
-    public function resetParameters(): Renderable
+    public function resetParameters(): self
     {
         $this->parameters = collect();
 
@@ -127,7 +127,7 @@ abstract class Renderable
      *
      * @return Renderable
      */
-    public function addTarget(Target $target): Renderable
+    public function addTarget(Target $target): self
     {
         return $this->addParameter($target);
     }
@@ -139,7 +139,7 @@ abstract class Renderable
      *
      * @return Renderable
      */
-    public function from($time): Renderable
+    public function from($time): self
     {
         return $this->addParameter(From::make($time));
     }
@@ -151,7 +151,7 @@ abstract class Renderable
      *
      * @return Renderable
      */
-    public function until($time): Renderable
+    public function until($time): self
     {
         return $this->addParameter(Until::make($time));
     }
@@ -164,10 +164,11 @@ abstract class Renderable
      *
      * @return Renderable
      */
-    public function addParameter($parameter, $value = null): Renderable
+    public function addParameter($parameter, $value = null): self
     {
         if ($parameter instanceof UrlParameter) {
             $this->parameters->add($parameter);
+
             return $this;
         }
 
@@ -189,7 +190,7 @@ abstract class Renderable
      *
      * @throws InvalidGraphiteHost
      */
-    public function host(string $name): Renderable
+    public function host(string $name): self
     {
         $this->host = config("graphitti.hosts.{$name}");
 
@@ -207,7 +208,7 @@ abstract class Renderable
      *
      * @return Renderable
      */
-    public function handler($handler): Renderable
+    public function handler($handler): self
     {
         $this->handler = $handler;
 

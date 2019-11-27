@@ -11,6 +11,6 @@ class Until extends Time
      */
     public function render(): string
     {
-        return 'until=' . $this->value();
+        return 'until='.$this->value();
     }
 }

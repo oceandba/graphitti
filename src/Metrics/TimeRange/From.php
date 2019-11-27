@@ -11,6 +11,6 @@ class From extends Time
      */
     public function render(): string
     {
-        return 'from=' . $this->value();
+        return 'from='.$this->value();
     }
 }

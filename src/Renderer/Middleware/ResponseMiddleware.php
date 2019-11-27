@@ -16,5 +16,5 @@ abstract class ResponseMiddleware
      *
      * @return ResponseInterface
      */
-    public abstract function handle(ResponseInterface $response): ResponseInterface;
+    abstract public function handle(ResponseInterface $response): ResponseInterface;
 }
