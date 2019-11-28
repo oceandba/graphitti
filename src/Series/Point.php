@@ -45,7 +45,6 @@ class Point
         return $this->time;
     }
 
-
     /**
      * Get the value of the Point.
      *
