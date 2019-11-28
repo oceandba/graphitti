@@ -3,9 +3,12 @@
 namespace OceanDBA\Graphitti\Series;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Traits\Macroable;
 
 class Point
 {
+    use Macroable;
+
     /**
      * Time at which the point occurred.
      *
@@ -30,6 +33,27 @@ class Point
     {
         $this->time = $time;
         $this->value = $value;
+    }
+
+    /**
+     * Get the time for this Point.
+     *
+     * @return Carbon
+     */
+    public function time(): Carbon
+    {
+        return $this->time;
+    }
+
+
+    /**
+     * Get the value of the Point.
+     *
+     * @return float
+     */
+    public function value(): float
+    {
+        return $this->value;
     }
 
     /**
