@@ -9,7 +9,9 @@ use OceanDBA\Graphitti\Contracts\UrlParameter;
 
 class Target implements UrlParameter, Metric
 {
-    use Makable, Macroable;
+    use Makable, Macroable {
+        Macroable::__call as callMacro;
+    }
 
     /**
      * Name for the target.
@@ -63,6 +65,16 @@ class Target implements UrlParameter, Metric
     }
 
     /**
+     * Returns the name of the Target.
+     *
+     * @return string
+     */
+    public function name(): string
+    {
+        return $this->name;
+    }
+
+    /**
      * Get the current value of the parameter as string for Graphite.
      *
      * @return string
@@ -92,7 +104,11 @@ class Target implements UrlParameter, Metric
      */
     public function __call($name, $arguments)
     {
-        return $this->apply($name, ...$arguments);
+        try {
+            return $this->callMacro($name, $arguments);
+        } catch (\BadMethodCallException $e) {
+            return $this->apply($name, ...$arguments);
+        }
     }
 
     /**
