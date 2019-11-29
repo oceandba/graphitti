@@ -57,6 +57,16 @@ class DataPoints
     }
 
     /**
+     * Returns the points Collection.
+     *
+     * @return Collection
+     */
+    public function points(): Collection
+    {
+        return $this->points;
+    }
+
+    /**
      * Determine if the datapoints is empty or not.
      *
      * @return bool
