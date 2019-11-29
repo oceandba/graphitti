@@ -57,6 +57,16 @@ class DataPoints
     }
 
     /**
+     * Returns the Target associated to the DataPoints.
+     *
+     * @return Target
+     */
+    public function target(): Target
+    {
+        return $this->target;
+    }
+
+    /**
      * Returns the points Collection.
      *
      * @return Collection
