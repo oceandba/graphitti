@@ -27,6 +27,28 @@ class PointsTest extends TestCase
         $this->assertCount(3, $dataPointsCollection);
     }
 
+    public function test_it_follows_defined_precision()
+    {
+        /** @var Points $points */
+        $points = app(Points::class)->handler($this->mockPoints());
+        $dataPointsCollection = $points->addTarget(Target::make('oceandba.server1.load', 'Server-load-1')->precision(2))
+                                       ->addTarget(Target::make('oceandba.server2.load', 'Server-load-2'))
+                                       ->from('-1h')
+                                       ->until('now')
+                                       ->addParameter('maxDataPoints', 50)
+                                       ->render();
+
+        $this->assertEquals(
+            [0.54, 1.07, 0.0],
+            $dataPointsCollection->first()->points()->map->value()->all()
+        );
+
+        $this->assertEquals(
+            [0.48166666666666674, 0.6614285714285714, 0.7287499999999999],
+            $dataPointsCollection->last()->points()->map->value()->all()
+        );
+    }
+
     /**
      * Return mocks of datapoints.
      *

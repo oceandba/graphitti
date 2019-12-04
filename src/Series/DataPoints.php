@@ -49,8 +49,8 @@ class DataPoints
     public static function make(Target $target, array $data = null): self
     {
         $data = $data ?? [];
-        $points = collect($data['datapoints'] ?? [])->transform(function ($point) {
-            return Point::make($point[1], $point[0] ?? 0.0);
+        $points = collect($data['datapoints'] ?? [])->transform(function ($point) use ($target) {
+            return Point::make($point[1], $point[0] ?? 0.0, $target->getPrecision());
         });
 
         return new static($target, $points);

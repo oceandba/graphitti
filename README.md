@@ -51,6 +51,12 @@ use OceanDBA\Graphitti\Metrics\Target;
 $target = Target::make('oceandba.server1.load', 'Server-load-1');
 ```
 
+You may also add a precision to the Target object which will serve to round DataPoints when retrieved.
+
+```php
+$target = Target::make('oceandba.server1.load', 'Server-load-1')->precision(2);
+```
+
 The ```Target``` takes two parameters :
 1) The path
 2) An optional name for the Target
