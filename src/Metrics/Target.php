@@ -28,15 +28,24 @@ class Target implements UrlParameter, Metric
     protected $target;
 
     /**
+     * The final precision when rendering to DataPoints.
+     *
+     * @var int
+     */
+    protected $precision;
+
+    /**
      * Target constructor.
      *
      * @param string $target
      * @param string $name
+     * @param int    $precision
      */
-    public function __construct(string $target, string $name = null)
+    public function __construct(string $target, string $name = null, int $precision = null)
     {
         $this->target = $target;
         $this->name = $name;
+        $this->precision = $precision;
     }
 
     /**
@@ -72,6 +81,30 @@ class Target implements UrlParameter, Metric
     public function name(): string
     {
         return $this->name;
+    }
+
+    /**
+     * Return the Precision used for this Target.
+     *
+     * @param int $precision
+     *
+     * @return self
+     */
+    public function precision(int $precision): self
+    {
+        $this->precision = $precision;
+
+        return $this;
+    }
+
+    /**
+     * Return the Precision used for this Target.
+     *
+     * @return int|null
+     */
+    public function getPrecision(): ?int
+    {
+        return $this->precision;
     }
 
     /**

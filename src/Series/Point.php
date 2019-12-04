@@ -60,13 +60,14 @@ class Point
      *
      * @param int   $timestamp
      * @param float $value
+     * @param int   $precision
      *
      * @return Point
      */
-    public static function make(int $timestamp, float $value): self
+    public static function make(int $timestamp, float $value, int $precision = null): self
     {
         $time = Carbon::createFromTimestamp($timestamp);
-        $value = round($value, 2);
+        $value = is_null($precision) ? $value : round($value, $precision);
 
         return new static($time, $value);
     }
